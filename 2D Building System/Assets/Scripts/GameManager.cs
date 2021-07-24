@@ -26,6 +26,8 @@ public class GameManager : MonoBehaviour
     
     void Start()
     {
+        PlayerPrefs.DeleteAll();
+        
         buildingCurrentSizeX = building.GetComponent<RectTransform>().sizeDelta.x;
         buildingCurrentSizeY = building.GetComponent<RectTransform>().sizeDelta.y;
 
