@@ -20,6 +20,9 @@ public class GameManager : MonoBehaviour
 
     [SerializeField]
     private float defaultPositionX, defaultPositionY;
+
+    public Sprite selectedSprite;
+    public int selectedCost;
     
     void Start()
     {
