@@ -13,16 +13,25 @@ public class BuildUp : MonoBehaviour
 
         if (selectedSprite != null)
         {
-            //success
-            if(PlayerPrefs.GetInt(this.gameObject.name) == 0)
+            if(gameManager.balance >= gameManager.selectedCost)
             {
-                Image selectedObject = Instantiate(gameManager.building, this.gameObject.transform);
-                selectedObject.GetComponent<Image>().sprite = selectedSprite;
-                PlayerPrefs.SetInt(this.gameObject.name, 1);
+                //success
+                if (PlayerPrefs.GetInt(this.gameObject.name) == 0)
+                {
+                    Image selectedObject = Instantiate(gameManager.building, this.gameObject.transform);
+                    selectedObject.GetComponent<Image>().sprite = selectedSprite;
+                    PlayerPrefs.SetInt(this.gameObject.name, 1);
+
+                    gameManager.balance -= gameManager.selectedCost;
+                }
+                else
+                {
+                    Debug.Log("<size=15>You have already built here!</size>");
+                }
             }
             else
             {
-                Debug.Log("<size=15>You have already built here!</size>");
+                Debug.Log("You have no balance to build it!");
             }
         }
         else

@@ -23,6 +23,9 @@ public class GameManager : MonoBehaviour
 
     public Sprite selectedSprite;
     public int selectedCost;
+
+    public Text balanceText;
+    public int balance;
     
     void Start()
     {
@@ -55,5 +58,10 @@ public class GameManager : MonoBehaviour
                 image.name = buildingName.ToString();
             }
         }
+    }
+
+    void Update()
+    {
+        balanceText.text = balance.ToString();
     }
 }
